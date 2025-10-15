@@ -1,0 +1,3 @@
+:root{--color-primary-50:15 23 42;--color-primary-100:23 37 84;--color-primary-200:30 41 59;--color-primary-300:51 65 85;--color-primary-400:71 85 105;--color-primary-500:100 116 139;--color-primary-600:148 163 184;--color-primary-700:203 213 225;--color-primary-800:226 232 240;--color-primary-900:241 245 249;--color-primary-950:248 250 252}
+html,body,#root{height:100%}
+*{box-sizing:border-box}
