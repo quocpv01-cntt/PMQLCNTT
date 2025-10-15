@@ -2,36 +2,37 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { User, UserRole, AuthContextType, AuthContext } from './types';
-import LoginPage from './pages/LoginPage';
-import MainLayout from './components/layout/MainLayout';
-import DashboardPage from './pages/DashboardPage';
-import EquipmentManagementPage from './pages/AssetManagementPage';
-import EquipmentTypesPage from './pages/EquipmentTypesPage';
-import StaffPage from './pages/StaffPage';
-import StaffProfilePage from './pages/StaffProfilePage';
-import ManufacturersPage from './pages/ManufacturersPage';
-import UnitsPage from './pages/UnitsPage';
-import NotFoundPage from './pages/NotFoundPage';
-import LicensesPage from './pages/LicensesPage';
-import NetworkPage from './pages/NetworkPage';
-import AllocationPage from './pages/AllocationPage';
-import MaintenancePage from './pages/MaintenancePage';
-import RepairsPage from './pages/RepairsPage';
-import TransfersPage from './pages/TransfersPage';
-import UsageHistoryPage from './pages/UsageHistoryPage';
-import ReportsPage from './pages/ReportsPage';
-import PermissionsPage from './pages/PermissionsPage';
-import SettingsPage from './pages/SettingsPage';
-import AccountPage from './pages/AccountPage';
-import { staffApi } from './services/api';
-import DetailedReportsPage from './pages/DetailedReportsPage';
-import { ToastProvider } from './contexts/ToastContext';
-import { ThemeProvider } from './contexts/ThemeContext';
-import { NotificationProvider } from './contexts/NotificationContext';
-import { DataProvider } from './contexts/DataContext';
-import DatabaseExplorerPage from './pages/DatabaseExplorerPage';
-import RolesManagementPage from './pages/RolesManagementPage';
-import ChangePasswordModal from './components/auth/ChangePasswordModal';
+import LoginPage from './src/pages/LoginPage';
+import MainLayout from './src/components/layout/MainLayout';
+import DashboardPage from './src/pages/DashboardPage';
+import EquipmentManagementPage from './src/pages/AssetManagementPage';
+import EquipmentTypesPage from './src/pages/EquipmentTypesPage';
+import StaffPage from './src/pages/StaffPage';
+import StaffProfilePage from './src/pages/StaffProfilePage';
+import ManufacturersPage from './src/pages/ManufacturersPage';
+import UnitsPage from './src/pages/UnitsPage';
+import NotFoundPage from './src/pages/NotFoundPage';
+import LicensesPage from './src/pages/LicensesPage';
+import NetworkPage from './src/pages/NetworkPage';
+import AllocationPage from './src/pages/AllocationPage';
+import MaintenancePage from './src/pages/MaintenancePage';
+import RepairsPage from './src/pages/RepairsPage';
+import TransfersPage from './src/pages/TransfersPage';
+import UsageHistoryPage from './src/pages/UsageHistoryPage';
+import ReportsPage from './src/pages/ReportsPage';
+import PermissionsPage from './src/pages/PermissionsPage';
+import SettingsPage from './src/pages/SettingsPage';
+import AccountPage from './src/pages/AccountPage';
+import TicketsPage from './src/pages/TicketsPage';
+import { staffApi } from './src/services/api';
+import DetailedReportsPage from './src/pages/DetailedReportsPage';
+import { ToastProvider } from './src/contexts/ToastContext';
+import { ThemeProvider } from './src/contexts/ThemeContext';
+import { NotificationProvider } from './src/contexts/NotificationContext';
+import { DataProvider } from './src/contexts/DataContext';
+import DatabaseExplorerPage from './src/pages/DatabaseExplorerPage';
+import RolesManagementPage from './src/pages/RolesManagementPage';
+import ChangePasswordModal from './src/components/auth/ChangePasswordModal';
 
 const REMEMBERED_USER_KEY = 'it_system_remembered_user_v1';
 const DEFAULT_PASSWORD = 'Admin@345';
@@ -181,6 +182,7 @@ const App: React.FC = () => {
                                             {user.permissions?.['equipment-types']?.view && <Route path="equipment-types" element={<EquipmentTypesPage />} />}
                                             {user.permissions?.staff?.view && <Route path="staff" element={<StaffPage />} />}
                                             {user.permissions?.staff?.view && <Route path="staff/:staffId" element={<StaffProfilePage />} />}
+                                            {user.permissions?.tickets?.view && <Route path="tickets" element={<TicketsPage />} />}
                                             {user.permissions?.manufacturers?.view && <Route path="manufacturers" element={<ManufacturersPage />} />}
                                             {user.permissions?.units?.view && <Route path="units" element={<UnitsPage />} />}
                                             {user.permissions?.licenses?.view && <Route path="licenses" element={<LicensesPage />} />}
